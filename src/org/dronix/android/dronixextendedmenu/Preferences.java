@@ -156,21 +156,11 @@ public class Preferences extends PreferenceActivity {
         if(newValue.toString().equals("true") && !DataIcon.isRunning()){
 
             dt.addIc();
-
-             if (DataIcon.isRunning()) {
-                Toast.makeText(getApplicationContext(),
-                    getText(R.string.addIcon),
-                    Toast.LENGTH_SHORT).show();
             }
 
-        }
+
         else{
                dt.rmIc();
-            if (!DataIcon.isRunning()) {
-                Toast.makeText(getApplicationContext(),
-                  getText(R.string.rmIcon),
-                    Toast.LENGTH_SHORT).show();
-            }
 
         }
     }
