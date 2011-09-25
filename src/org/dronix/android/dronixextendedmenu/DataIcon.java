@@ -1,23 +1,18 @@
 package org.dronix.android.dronixextendedmenu;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.Environment;
+import android.os.AsyncTask;
 import com.stericson.RootTools.RootToolsException;
 
-import java.io.*;
-
-
-
-
+import java.io.IOException;
 
 
 /**
- * Created by IntelliJ IDEA.
  * User: harlem88
  * Date: 9/24/11
  * Time: 1:40 AM
- * To change this template use File | Settings | File Templates.
  */
 public class DataIcon {
     public DataIcon(Activity dti) {
@@ -27,68 +22,107 @@ public class DataIcon {
     }
 
 
-          public static boolean isRunning() throws IOException {
+          public static boolean isRunning(){
+    String psOutput = DEMUtil.exec("grep \"ro.config.hw_opta=224\" /system/build.prop");
+           if(psOutput.indexOf("ro.config.hw_opta=224")>0) {
+            psOutput = DEMUtil.exec("grep \"ro.config.hw_optb=620\" /system/build.prop");
+               if(psOutput.indexOf("ro.config.hw_optb=620")>0) {
+                  return true;
+               }
+           } else return false;
 
-              File rootStore = Environment.getRootDirectory();
+          return false;
 
-                      String path=rootStore+"/build.prop";
-                      File file=new File(path);
-                     FileInputStream instream = null;
-                          try {
-                              instream = new FileInputStream(file);
-                          } catch (FileNotFoundException e1) {
-                              // TODO Auto-generated catch block
-                              e1.printStackTrace();
-                          }
-                          boolean checked=false;
-                        InputStreamReader inputreader = new InputStreamReader(instream);
-                        BufferedReader buffreader = new BufferedReader(inputreader);
-
-                        String line;
-
-                          while((line = buffreader.readLine()) != null){
-                              if((line.equalsIgnoreCase("ro.config.hw_opta=224"))){
-                                  line = buffreader.readLine();
-                                  if((line.equalsIgnoreCase("ro.config.hw_optb=620"))){
-                                          checked=true;
-
-                                  }
-                              }
-                               else
-                                  checked=false;
-                            }
-        return checked;
           }
+
+
+
 
 
   public void addIc() throws IOException, RootToolsException, InterruptedException {
     //  dti.showDialog(DIALOG_PROGRESS_IDAdd);
-                fsm.mountRW();
+             pD =ProgressDialog.show(dti,"Add Data Icon", "", true, false);
+               /* fsm.mountRW();
                         fsm.setDataIcon();
                         fsm.mountRO();
-
+                 */
+                   TaskIconRemove tIR=new TaskIconRemove();
+                   tIR.execute("Fix started ...", "1");
   }
 
   public void rmIc() throws IOException, RootToolsException, InterruptedException {
-                      fsm.mountRW();
-                        fsm.rmDataIcon();
-                        fsm.mountRO();
+
+      pD =ProgressDialog.show(dti,"Remove Data Icon", "", true, false);
+                   /* fsm.mountRW();
+                            fsm.setDataIcon();
+                            fsm.mountRO();
+                     */
+                       TaskIconRemove tIR=new TaskIconRemove();
+                       tIR.execute("Fix started ...", "2");
+
+
+
       //      dti.showDialog(DIALOG_PROGRESS_IDRm);
 
   }
 
 
+    private class TaskIconRemove extends AsyncTask<String, String, String> {
 
 
+                @Override
+                protected String doInBackground(String... params) {
+                        publishProgress(params[0]);
+                    try {
+                        if(params[1].equalsIgnoreCase("1")){
+
+                           fsm.mountRW();
+                           fsm.setDataIcon();
+
+                                   Thread.sleep(1000);
+
+                            fsm.mountRO();
+
+                            if(isRunning()) publishProgress("Fix completed!");
+
+                        }
+                            else
+
+                        {
+
+                             fsm.mountRW();
+                        fsm.rmDataIcon();
+                            Thread.sleep(1000);
+                            if(!isRunning())publishProgress("Fix completed!");
+
+                            fsm.mountRO();
 
 
+                        }
+                         } catch (IOException e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    } catch (RootToolsException e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    }
 
-	private static final int DIALOG_PROGRESS_IDAdd = 1;
-	private static final int DIALOG_PROGRESS_IDRm = 2;
-	private static final int DIALOG_CONFIRM_ID= 3;
-	private static final int DIALOG_OK_ID=4;
+                    return "Finish !";
+                }
 
+                @Override
+                protected void onProgressUpdate(String... values) {
+                        pD.setMessage(values[0] + "\n");
+                }
 
+                @Override
+                protected void onPostExecute(String result) {
+                        pD.dismiss();
+                }
+
+        }
+
+    private ProgressDialog pD;
    private final FSmanager fsm;
 private Activity dti;
  private Context c;
