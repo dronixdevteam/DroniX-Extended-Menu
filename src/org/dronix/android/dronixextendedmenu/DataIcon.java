@@ -41,7 +41,7 @@ public class DataIcon {
 
   public void addIc() throws IOException, RootToolsException, InterruptedException {
     //  dti.showDialog(DIALOG_PROGRESS_IDAdd);
-             pD =ProgressDialog.show(dti,"Add Data Icon", "", true, false);
+             pD =ProgressDialog.show(dti,"Enable Data Icon", "", true, false);
                /* fsm.mountRW();
                         fsm.setDataIcon();
                         fsm.mountRO();
@@ -52,7 +52,7 @@ public class DataIcon {
 
   public void rmIc() throws IOException, RootToolsException, InterruptedException {
 
-      pD =ProgressDialog.show(dti,"Remove Data Icon", "", true, false);
+      pD =ProgressDialog.show(dti,"Disable Data Icon", "", true, false);
                    /* fsm.mountRW();
                             fsm.setDataIcon();
                             fsm.mountRO();

@@ -52,10 +52,10 @@ public final class R {
         public static final int addIcon=0x7f060009;
         public static final int app_name=0x7f060000;
         public static final int createdBy=0x7f060007;
+        public static final int data_ic=0x7f060018;
         public static final int error=0x7f060008;
         public static final int exit_menuitem=0x7f060014;
         public static final int rmIcon=0x7f06000a;
-        public static final int rm_data_ic=0x7f060018;
         public static final int set_preferences=0x7f060015;
         public static final int sshStarted=0x7f060005;
         public static final int sshStopped=0x7f060006;

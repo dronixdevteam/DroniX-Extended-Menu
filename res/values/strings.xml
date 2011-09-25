@@ -29,7 +29,7 @@
 
     <string name="ssh_start_stop">Start or stop SSH server</string>
     <string name="webserver_start_stop">Start or stop Web server</string>
-    <string name="rm_data_ic">Remove or add data icon on notify bar</string>
+    <string name="data_ic">Enable or disable data icon on notify bar</string>
 
 
 </resources>

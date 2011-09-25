@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Preferences extends PreferenceActivity {
     boolean SSHCheckboxPreference;
     boolean WebServerCheckboxPreference;
-    boolean RemoveDataIconCheckBoxPreference;
+    boolean DataIconCheckBoxPreference;
      private DataIcon dt;
     SSH ssh = new SSH(this);
     WebServer wb = new WebServer(this);
@@ -49,7 +49,7 @@ public class Preferences extends PreferenceActivity {
 
 
             final CheckBoxPreference iconRmCeckboxPref= (CheckBoxPreference) getPreferenceManager()
-                     .findPreference("iconremove_checkbox_preference");
+                     .findPreference("data_icon_checkbox_preference");
                  iconRmCeckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                      public boolean onPreferenceChange(Preference preference, Object newValue) {
                          try {
@@ -86,7 +86,7 @@ public class Preferences extends PreferenceActivity {
             .getDefaultSharedPreferences(getBaseContext());
         SSHCheckboxPreference = prefs.getBoolean("ssh_checkbox_preference", true);
         WebServerCheckboxPreference = prefs.getBoolean("webserver_checkbox_preference", true);
-        RemoveDataIconCheckBoxPreference=prefs.getBoolean("iconremove_checkbox_preference",true);
+        DataIconCheckBoxPreference=prefs.getBoolean("data_icon_checkbox_preference",true);
 
     }
 

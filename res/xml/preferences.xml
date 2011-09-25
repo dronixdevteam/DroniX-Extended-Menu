@@ -13,10 +13,10 @@
             android:summary="@string/webserver_start_stop"
             android:key="webserver_checkbox_preference" />
         <CheckBoxPreference
-                   android:title="RemoveDataIcon"
+                   android:title="DataIcon"
                    android:defaultValue="false"
-                   android:summary="@string/rm_data_ic"
-                   android:key="iconremove_checkbox_preference" />
+                   android:summary="@string/data_ic"
+                   android:key="data_icon_checkbox_preference" />
 
         <!--        <ListPreference
             android:title="List Preference"
