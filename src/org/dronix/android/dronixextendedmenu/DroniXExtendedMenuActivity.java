@@ -45,7 +45,6 @@ public class DroniXExtendedMenuActivity extends Activity {
         webserverTB.setOnClickListener(new OnClickListener() {
 
             @Override
-
             public void onClick(View view) {
                 if (!WebServer.isRunning()) {
                     // start webserver and set togglebutton to true

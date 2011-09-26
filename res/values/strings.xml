@@ -23,6 +23,8 @@
 
     <!-- Menu -->
     <string name="ssh_password_change_menuitem">Change SSH password</string>
+    <string name="ssh_password_change_menuitem_label">Choose a new SSH password</string>
+    <string name="ssh_password_dialog_title">Edit password</string>
     <string name="about_menuitem">About</string>
     <string name="exit_menuitem">Exit</string>
     <string name="set_preferences">Set preferences</string>
@@ -30,6 +32,4 @@
     <string name="ssh_start_stop">Start or stop SSH server</string>
     <string name="webserver_start_stop">Start or stop Web server</string>
     <string name="data_ic">Enable or disable data icon on notify bar</string>
-
-
 </resources>

@@ -42,12 +42,11 @@ class FSmanager {
 
 
     }
-        public void rmDataIcon() throws IOException, RootToolsException, InterruptedException {
-                    String cmd1="sed -i \"s/ro.config.hw_opta=224/ro.config.hw_opta=02/g\" /system/build.prop";
-					String cmd2="sed -i \"s/ro.config.hw_optb=620/ro.config.hw_optb=0/g\" /system/build.prop";
-		RootTools.sendShell(cmd1);
+    public void rmDataIcon() throws IOException, RootToolsException, InterruptedException {
+        String cmd1="sed -i \"s/ro.config.hw_opta=224/ro.config.hw_opta=02/g\" /system/build.prop";
+        String cmd2="sed -i \"s/ro.config.hw_optb=620/ro.config.hw_optb=0/g\" /system/build.prop";
+        RootTools.sendShell(cmd1);
         RootTools.sendShell(cmd2);
 
-        }
-
+    }
 }
