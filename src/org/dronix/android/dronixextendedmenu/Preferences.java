@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.text.format.Formatter;
 import android.widget.Toast;
 import com.stericson.RootTools.RootToolsException;
+
 import java.io.IOException;
 
 
@@ -165,5 +166,5 @@ public class Preferences extends PreferenceActivity {
 		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 		int ipAddress = wifiInfo.getIpAddress();
 		return Formatter.formatIpAddress(ipAddress);
-        }
+    }
 }

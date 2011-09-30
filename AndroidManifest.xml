@@ -18,5 +18,8 @@
         <activity android:name=".SSHpasswordChange"
                   android:label="@string/ssh_password_change_menuitem">
         </activity>
+        <activity android:name=".Authors"
+                  android:label="@string/authors">
+        </activity>
     </application>
 </manifest>
