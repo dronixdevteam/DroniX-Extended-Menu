@@ -32,5 +32,7 @@
     <string name="ssh_start_stop">Start or stop SSH server</string>
     <string name="webserver_start_stop">Start or stop Web server</string>
     <string name="data_ic">Enable or disable data icon on notify bar</string>
+    <string name="data_ic">Enable or disable data icon on notify bar (Ideos only)</string>
+
     <string name="authors">Authors</string>
 </resources>
