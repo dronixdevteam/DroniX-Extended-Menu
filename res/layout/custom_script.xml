@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+    android:id="@+id/widget31"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:id="@+id/widget32"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_x="0px"
+        android:layout_y="2px">
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/textview"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:text="@string/custom_script_usage"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/custom_script_run_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/run"
+        android:layout_x="90px"
+        android:layout_y="142px">
+    </Button>
+</AbsoluteLayout>

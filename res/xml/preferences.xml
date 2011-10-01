@@ -27,6 +27,14 @@
                    android:summary="@string/data_ic"
                    android:key="data_icon_checkbox_preference" />
         <Preference
+            android:title="@string/custom_script"
+            android:key="custom_script">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.dronix.android.dronixextendedmenu"
+                android:targetClass="org.dronix.android.dronixextendedmenu.CustomScript" />
+        </Preference>
+        <Preference
             android:title="@string/authors"
             android:key="authors">
             <intent

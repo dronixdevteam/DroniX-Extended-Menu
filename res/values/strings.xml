@@ -31,8 +31,15 @@
 
     <string name="ssh_start_stop">Start or stop SSH server</string>
     <string name="webserver_start_stop">Start or stop Web server</string>
-    <string name="data_ic">Enable or disable data icon on notify bar</string>
+
     <string name="data_ic">Enable or disable data icon on notify bar (Ideos only)</string>
 
+    <string name="custom_script">Run a custom script</string>
     <string name="authors">Authors</string>
+    <string name="custom_script_usage">
+        Put a bash script named custom.sh in /foo/bar and click the button below.
+        DroniX will run your script.
+        Be careful!
+    </string>
+    <string name="run">Run</string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:title="Antonio Gisondi"
+        android:summary="harlem88.ant@gmail.com"
+        android:key="harlmen88">
+    </Preference>
+    <Preference
+        android:title="Ivan Morgillo"
+        android:summary="imorgillo@gmail.com"
+        android:key="hamen">
+    </Preference>
+    <Preference
+        android:title="Stefano Viola"
+        android:summary="stefanoviola85@gmail.com"
+        android:key="EstebanSannin">
+    </Preference>
+</PreferenceScreen>

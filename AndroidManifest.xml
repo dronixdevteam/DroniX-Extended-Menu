@@ -21,5 +21,8 @@
         <activity android:name=".Authors"
                   android:label="@string/authors">
         </activity>
+        <activity android:name=".CustomScript"
+                  android:label="@string/custom_script">
+        </activity>
     </application>
 </manifest>
