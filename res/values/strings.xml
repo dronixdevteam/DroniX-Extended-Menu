@@ -42,4 +42,9 @@
         Be careful!
     </string>
     <string name="run">Run</string>
+    <string name="kernel_settings">Kernel settings</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="wise_decision">Wise decision!</string>
+    <string name="kernel_standard_flashed">DroniX Standard Kernel has been flashed</string>
+    <string name="kernel_usbhost_flashed">DroniX USB Host Kernel has been flashed</string>
 </resources>

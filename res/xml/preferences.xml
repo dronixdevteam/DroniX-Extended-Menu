@@ -27,6 +27,14 @@
                    android:summary="@string/data_ic"
                    android:key="data_icon_checkbox_preference" />
         <Preference
+            android:title="@string/kernel_settings"
+            android:key="kernels">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.dronix.android.dronixextendedmenu"
+                android:targetClass="org.dronix.android.dronixextendedmenu.Kernels" />
+        </Preference>
+        <Preference
             android:title="@string/custom_script"
             android:key="custom_script">
             <intent
@@ -43,7 +51,6 @@
                 android:targetClass="org.dronix.android.dronixextendedmenu.Authors" />
         </Preference>
 <!--        <ListPreference
->>>>>>> develop
             android:title="List Preference"
             android:summary="This preference allows to select an item in a array"
             android:key="listPref"

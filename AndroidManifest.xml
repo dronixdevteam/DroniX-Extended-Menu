@@ -24,5 +24,8 @@
         <activity android:name=".CustomScript"
                   android:label="@string/custom_script">
         </activity>
+        <activity android:name=".Kernels"
+                  android:label="@string/kernel_settings">
+        </activity>
     </application>
 </manifest>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:title="Standard Kernel"
+        android:summary="Load DroniX Standard Kernel"
+        android:key="kernel_standard">
+    </Preference>
+    <Preference
+        android:title="USB Host Kernel"
+        android:summary="Load DroniX USB Host Kernel"
+        android:key="kernel_usbhost">
+    </Preference>
+</PreferenceScreen>

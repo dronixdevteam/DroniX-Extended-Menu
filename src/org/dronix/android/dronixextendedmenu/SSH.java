@@ -70,17 +70,18 @@ class SSH {
 		return true;
 	}
 
-        public void showInfos(String body, String title) {
+    public void showInfos(String body, String title) {
 
-            AlertDialog.Builder alertbox = new AlertDialog.Builder(dem);
-            alertbox.setTitle(title);
-            alertbox.setMessage(body);
-            alertbox.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                }
-            });
-            alertbox.show();
-        }
+        AlertDialog.Builder alertbox = new AlertDialog.Builder(dem);
+        alertbox.setTitle(title);
+        alertbox.setMessage(body);
+        alertbox.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        alertbox.show();
+    }
+
     public void start() throws IOException, RootToolsException, InterruptedException {
         File old = new File("/data/www/cgi-bin/ssh-on.cgi");
         if (old.exists()) {
