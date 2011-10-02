@@ -28,7 +28,7 @@ public class CustomScript extends Activity {
        button.setOnClickListener(new View.OnClickListener() {
            public void onClick(View v) {
                try {
-                   RootTools.sendShell("/system/xbin/theme_switcher ginger");
+                   RootTools.sendShell("/mnt/sdcard/dronix/custom_script.sh");
                } catch (IOException e) {
                    e.printStackTrace();
                } catch (InterruptedException e) {

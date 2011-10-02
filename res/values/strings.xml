@@ -42,8 +42,8 @@
     <string name="custom_script">Run a custom script</string>
     <string name="authors">Authors</string>
     <string name="custom_script_usage">
-        Put a bash script named custom.sh in /foo/bar and click the button below.
-        DroniX will run your script.
+        Put a bash script named custom.sh in /mnt/sdcard/dronix/custom_script.sh
+        and click the button below. DroniX will run your script.
         Be careful!
     </string>
     <string name="run">Run</string>
