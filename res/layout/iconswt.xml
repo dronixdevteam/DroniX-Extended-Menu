@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+
+              >
+   <ScrollView android:id="@+id/scrollView1"
+	android:fillViewport="true"
+	 android:layout_width="match_parent" android:layout_height="wrap_content">
+<TableLayout
+        android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="2">
+
+    <TableRow>
+
+        <ImageView
+
+                    android:src="@drawable/battery1"
+                    android:layout_height="100px"
+                    android:layout_width="80px"
+                      android:layout_column="1"
+
+                      android:layout_gravity="left"
+                      android:padding="3dip" />
+
+
+
+                <TextView
+
+                       android:layout_gravity="center"
+
+           android:layout_column="1"
+            android:text="Battery 1"
+            android:padding="3dip"
+
+                                   />
+        <CheckBox
+                        android:id="@+id/check_i_battery1"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        android:gravity="right"
+                        android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+                   </CheckBox>
+
+    </TableRow>
+
+    <View
+         android:layout_height="2dip"
+          android:background="#FF909090" />
+
+    <TableRow>
+        <ImageView
+
+                   android:src="@drawable/battery2"
+                  android:layout_height="100px"
+           android:layout_width="80px"
+                              android:layout_column="1"
+                              android:layout_gravity="left"
+                              android:padding="3dip" />
+
+          <TextView
+                  android:layout_gravity="center"
+
+             android:layout_column="1"
+              android:text="Battery 2"
+              android:padding="3dip"
+
+                                     />
+
+
+        <CheckBox         android:id="@+id/check_i_battery2"
+                                   android:layout_column="1"
+                                  android:layout_gravity="center"
+                        android:gravity="right"
+                        android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content">
+                                </CheckBox>
+
+      </TableRow>
+
+
+    <View
+         android:layout_height="2dip"
+          android:background="#FF909090" />
+
+
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

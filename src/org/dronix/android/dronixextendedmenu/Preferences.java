@@ -11,7 +11,6 @@ import android.preference.PreferenceManager;
 import android.text.format.Formatter;
 import android.widget.Toast;
 import com.stericson.RootTools.RootToolsException;
-
 import java.io.IOException;
 
 
@@ -20,7 +19,7 @@ public class Preferences extends PreferenceActivity {
     boolean WebServerCheckboxPreference;
     boolean DataIconCheckBoxPreference;
     private DataIcon dt;
-
+    private String themeSwicth;
     String SSHpassword;
     SSH ssh = new SSH(this);
     WebServer wb = new WebServer(this);
@@ -77,6 +76,7 @@ public class Preferences extends PreferenceActivity {
         WebServerCheckboxPreference = prefs.getBoolean("webserver_checkbox_preference", true);
         DataIconCheckBoxPreference=prefs.getBoolean("data_icon_checkbox_preference",true);
         SSHpassword = prefs.getString("ssh_password", "Nothing has been entered");
+        themeSwicth=prefs.getString("ThmSwt", "");
     }
 
     private void checkSSHstatus(Object newValue) {
@@ -166,5 +166,5 @@ public class Preferences extends PreferenceActivity {
 		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 		int ipAddress = wifiInfo.getIpAddress();
 		return Formatter.formatIpAddress(ipAddress);
-    }
+        }
 }

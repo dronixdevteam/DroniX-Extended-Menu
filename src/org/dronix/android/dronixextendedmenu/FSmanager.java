@@ -49,4 +49,16 @@ class FSmanager {
         RootTools.sendShell(cmd2);
 
     }
+    public void setTheme(String theme) throws IOException, RootToolsException, InterruptedException {
+           RootTools.debugMode=true;
+        String commands = new String("theme_switcher "+theme);
+
+        RootTools.sendShell(commands);
+    }
+  public void reboot() throws IOException, RootToolsException, InterruptedException {
+
+      RootTools.sendShell("/system/bin/reboot");
+
+    }
+
 }

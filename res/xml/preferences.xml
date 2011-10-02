@@ -22,10 +22,20 @@
             android:summary="@string/webserver_start_stop"
             android:key="webserver_checkbox_preference" />
         <CheckBoxPreference
-                   android:title="DataIcon"
-                   android:defaultValue="false"
-                   android:summary="@string/data_ic"
-                   android:key="data_icon_checkbox_preference" />
+            android:title="DataIcon"
+            android:defaultValue="false"
+            android:summary="@string/data_ic"
+            android:key="data_icon_checkbox_preference" />
+        <Preference
+            android:title="@string/theme_switcher"
+            android:summary="@string/theme_switcher_des"
+            android:key="ThmSwt">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.dronix.android.dronixextendedmenu"
+                android:targetClass="org.dronix.android.dronixextendedmenu.ThemeSwitcherPrActivity"
+                />
+        </Preference>
         <Preference
             android:title="@string/kernel_settings"
             android:key="kernels">
@@ -50,40 +60,40 @@
                 android:targetPackage="org.dronix.android.dronixextendedmenu"
                 android:targetClass="org.dronix.android.dronixextendedmenu.Authors" />
         </Preference>
-<!--        <ListPreference
-            android:title="List Preference"
-            android:summary="This preference allows to select an item in a array"
-            android:key="listPref"
-            android:defaultValue="digiGreen"
-            android:entries="@array/listArray"
-            android:entryValues="@array/listValues" />-->
+        <!--        <ListPreference
+       android:title="List Preference"
+       android:summary="This preference allows to select an item in a array"
+       android:key="listPref"
+       android:defaultValue="digiGreen"
+       android:entries="@array/listArray"
+       android:entryValues="@array/listValues" />-->
     </PreferenceCategory>
     <!--<PreferenceCategory
         android:title="Second Category">-->
-<!--        <EditTextPreference
-            android:name="EditText Preference"
-            android:summary="This allows you to enter a string"
-            android:defaultValue="Nothing"
-            android:title="Edit This Text"
-            android:key="editTextPref" />-->
-        <!--<RingtonePreference
-            android:name="Ringtone Preference"
-            android:summary="Select a ringtone"
-            android:title="Ringtones"
-            android:key="ringtonePref" />-->
-        <!--<PreferenceScreen
-            android:key="SecondPrefScreen"
-            android:title="Second PreferenceScreen"
-            android:summary="This is a second PreferenceScreen">
-            <EditTextPreference
-                android:name="An other EditText Preference"
-                android:summary="This is a preference in the second PreferenceScreen"
-                android:title="Edit text"
-                android:key="SecondEditTextPref" />
-        </PreferenceScreen>-->
-        <!--<Preference
-            android:title="Custom Preference"
-            android:summary="This works almost like a button"
-            android:key="customPref" />-->
+    <!--        <EditTextPreference
+   android:name="EditText Preference"
+   android:summary="This allows you to enter a string"
+   android:defaultValue="Nothing"
+   android:title="Edit This Text"
+   android:key="editTextPref" />-->
+    <!--<RingtonePreference
+   android:name="Ringtone Preference"
+   android:summary="Select a ringtone"
+   android:title="Ringtones"
+   android:key="ringtonePref" />-->
+    <!--<PreferenceScreen
+        android:key="SecondPrefScreen"
+        android:title="Second PreferenceScreen"
+        android:summary="This is a second PreferenceScreen">
+        <EditTextPreference
+            android:name="An other EditText Preference"
+            android:summary="This is a preference in the second PreferenceScreen"
+            android:title="Edit text"
+            android:key="SecondEditTextPref" />
+    </PreferenceScreen>-->
+    <!--<Preference
+   android:title="Custom Preference"
+   android:summary="This works almost like a button"
+   android:key="customPref" />-->
     <!--</PreferenceCategory>-->
 </PreferenceScreen>

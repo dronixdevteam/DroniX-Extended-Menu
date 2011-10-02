@@ -28,6 +28,11 @@
     <string name="about_menuitem">About</string>
     <string name="exit_menuitem">Exit</string>
     <string name="set_preferences">Set preferences</string>
+    <string name="theme_switcher">Theme Switcher</string>
+    <string name="theme_switcher_des">Change style ideos</string>
+    <string name="theme">Change theme on ideos</string>
+    <string name="icon_switcher">Icon Switcher</string>
+    <string name="icon_switcher_des">Change icon on ideos</string>
 
     <string name="ssh_start_stop">Start or stop SSH server</string>
     <string name="webserver_start_stop">Start or stop Web server</string>

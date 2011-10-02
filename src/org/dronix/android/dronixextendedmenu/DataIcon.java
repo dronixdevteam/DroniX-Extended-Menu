@@ -1,8 +1,10 @@
 package org.dronix.android.dronixextendedmenu;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import com.stericson.RootTools.RootToolsException;
 
@@ -100,11 +102,11 @@ public class DataIcon {
 
                         }
                          } catch (IOException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        e.printStackTrace();
                     } catch (RootToolsException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        e.printStackTrace();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        e.printStackTrace();
                     }
 
                     return "Finish !";
@@ -117,10 +119,63 @@ public class DataIcon {
 
                 @Override
                 protected void onPostExecute(String result) {
-                        pD.dismiss();
+
+                      AlertDialog.Builder builder=confirmReboot();
+
+
+                      builder.show();
+
+
+
+
+
                 }
 
         }
+    public AlertDialog.Builder confirmReboot(){
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(dti);
+                    builder.setTitle("Alert");
+                    builder.setMessage("Click reboot now to apply the change");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("reboot",new DialogInterface.OnClickListener(){
+
+                        public void onClick(DialogInterface dialog, int id){
+                                       pD.dismiss();
+                                   try {
+
+                                       dialog.dismiss();
+
+                                       fsm.reboot();
+                                   } catch (IOException e) {
+                                       e.printStackTrace();
+                                   } catch (RootToolsException e) {
+                                       e.printStackTrace();
+                                   } catch (InterruptedException e) {
+                                       e.printStackTrace();
+                                   }
+
+
+                               }
+
+
+
+    });         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                               public void onClick(DialogInterface dialog, int id){
+                                   pD.dismiss();
+
+                                   dialog.dismiss();
+                               }
+
+    });
+
+
+    return builder;
+    }
+
+
+
 
     private ProgressDialog pD;
    private final FSmanager fsm;
