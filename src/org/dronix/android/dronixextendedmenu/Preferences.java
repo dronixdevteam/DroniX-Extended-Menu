@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.text.format.Formatter;
 import android.widget.Toast;
 import com.stericson.RootTools.RootToolsException;
+
 import java.io.IOException;
 
 
@@ -28,11 +29,12 @@ public class Preferences extends PreferenceActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
-            dt=new DataIcon(this);
+            dt = new DataIcon(this);
 
-            final CheckBoxPreference checkboxPref = (CheckBoxPreference) getPreferenceManager()
+            final CheckBoxPreference SSHcheckboxPref = (CheckBoxPreference) getPreferenceManager()
                 .findPreference("ssh_checkbox_preference");
-            checkboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            SSHcheckboxPref.setChecked(SSH.isRunning());
+            SSHcheckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     checkSSHstatus(newValue);
                     return true;
@@ -41,13 +43,13 @@ public class Preferences extends PreferenceActivity {
 
             final CheckBoxPreference webserverCeckboxPref = (CheckBoxPreference) getPreferenceManager()
                 .findPreference("webserver_checkbox_preference");
+            webserverCeckboxPref.setChecked(WebServer.isRunning());
             webserverCeckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     checkWebServerStatus(newValue);
                     return true;
                 }
             });
-
 
             final CheckBoxPreference iconRmCeckboxPref= (CheckBoxPreference) getPreferenceManager()
                      .findPreference("data_icon_checkbox_preference");
@@ -56,15 +58,14 @@ public class Preferences extends PreferenceActivity {
                          try {
                              checkRemoveDtIconStatus(newValue);
                          } catch (IOException e) {
-                             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                             e.printStackTrace();
                          } catch (InterruptedException e) {
-                             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                             e.printStackTrace();
                          } catch (RootToolsException e) {
-                             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                             e.printStackTrace();
                          }
                          return true;
                      }
-
                  });
         }
 
@@ -83,13 +84,6 @@ public class Preferences extends PreferenceActivity {
         if (newValue.toString().equals("true") && !SSH.isRunning()) {
             try {
                 ssh.start();
-                String password = SSH.getPassword();
-                String ip = getWIFIip();
-                String connectionData = "username: root\n" +
-                    "password: " + password + "\n" +
-                    "IP: " + ip;
-                String title =   getString(R.string.sshStarted);
-                ssh.showInfos(connectionData, title);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (RootToolsException e) {
@@ -97,6 +91,13 @@ public class Preferences extends PreferenceActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            String password = SSH.getPassword();
+            String ip = getWIFIip();
+            String connectionData = "username: root\n" +
+                "password: " + password + "\n" +
+                "IP: " + ip;
+            String title =   getString(R.string.sshStarted);
+            ssh.showInfos(connectionData, title);
             if (SSH.isRunning()) {
                 Toast.makeText(getApplicationContext(),
                     getText(R.string.sshStarted),
@@ -125,13 +126,13 @@ public class Preferences extends PreferenceActivity {
         if (newValue.toString().equals("true") && !WebServer.isRunning()) {
             try {
                 wb.start();
-                String ip = getWIFIip();
-                if (ip.compareTo("0.0.0.0") == 0)
-                    ip = "localhost";
-                wb.showInfos(ip);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            String ip = getWIFIip();
+            if (ip.compareTo("0.0.0.0") == 0)
+                ip = "localhost";
+            wb.showInfos(ip);
             if (WebServer.isRunning()) {
                 Toast.makeText(getApplicationContext(),
                     getText(R.string.webserverStarted),
