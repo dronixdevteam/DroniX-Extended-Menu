@@ -52,4 +52,9 @@
     <string name="wise_decision">Wise decision!</string>
     <string name="kernel_standard_flashed">DroniX Standard Kernel has been flashed</string>
     <string name="kernel_usbhost_flashed">DroniX USB Host Kernel has been flashed</string>
+    <string name="theme_switcher_set_default_reboot">Set default theme and reboot framework</string>
+    <string name="theme_switcher_set_04_reboot">Set DroniX 0.4 theme and reboot framework</string>
+    <string name="theme_switcher_set_ginger_reboot">Set Ginger theme and reboot framework</string>
+    <string name="theme_switcher_set_sense_reboot">Set Sense theme and reboot framework</string>
+    <string name="theme_switcher_set_custom_reboot">Set custom theme and reboot framework</string>
 </resources>
