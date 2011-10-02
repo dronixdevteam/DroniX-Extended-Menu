@@ -30,6 +30,11 @@ public class IconSwitcherActivity extends Activity {
 
                final DEMUtil dem=new DEMUtil(this);
 
+        theme=checkTheme();
+
+
+           setChecks(theme);
+
 
 
 
@@ -39,6 +44,7 @@ public class IconSwitcherActivity extends Activity {
 
             @Override
             public void onClick(View view) {
+                setCheck(0);
 
               pD=ProgressDialog.show(IconSwitcherActivity.this,"Icon Switcher", "Set  battery 1 icon , now reboot framework",  true ,false);
 
@@ -56,6 +62,8 @@ public class IconSwitcherActivity extends Activity {
 
             @Override
             public void onClick(View view) {
+                setCheck(1);
+
                pD=ProgressDialog.show(IconSwitcherActivity.this,"Icon Switcher", "Set  battery 2 icon , now reboot framework",  true ,false);
 
                        TaskApplyIcon tAt=new TaskApplyIcon();
@@ -89,8 +97,6 @@ public class IconSwitcherActivity extends Activity {
                    @Override
                    protected String doInBackground(String... params) {
                            try{
-                             int set=Integer.parseInt(params[0]);
-                             setCheck(set);
 
                                fsm.setTheme(params[1]);
 
@@ -131,7 +137,7 @@ public class IconSwitcherActivity extends Activity {
     public String checkTheme(){
        String theme="";
       theme=DEMUtil.exec("grep BATTERY /etc/dronix.prop");
-            theme=theme.substring(7);
+            theme=theme.substring(8);
         return theme;
     }
 
@@ -141,4 +147,5 @@ public class IconSwitcherActivity extends Activity {
     private int checkT;
     private FSmanager fsm;
 private CheckBox checkbt1, checkbt2;
+    private String theme;
 }

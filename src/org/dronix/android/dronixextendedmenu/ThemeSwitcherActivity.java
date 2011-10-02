@@ -25,8 +25,11 @@ public class ThemeSwitcherActivity extends Activity{
     @Override
    public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    fsm=new FSmanager();
+
+     fsm=new FSmanager();
     setContentView(R.layout.themeswt);
+
+
         this.checkT=0;
          checkdf=(CheckBox) findViewById(R.id.checkdefault);
          checkdr=(CheckBox) findViewById(R.id.checkdronix);
@@ -46,9 +49,10 @@ checkdf.setOnClickListener(new OnClickListener() {
 
     @Override
     public void onClick(View view) {
+          setCheck(0);
         pD=ProgressDialog.show(ThemeSwitcherActivity.this,"Theme Switcher", "Set  default theme , now reboot framework",  true ,false);
 
-                          TaskApplyTheme tAt=new TaskApplyTheme();
+                           tAt=new TaskApplyTheme();
                           tAt.execute("0", "restore");
 
     }
@@ -58,9 +62,10 @@ checkdf.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
-               pD=ProgressDialog.show(ThemeSwitcherActivity.this,"Theme Switcher", "Set  dronix 0.4 theme , now reboot framework",  true ,false);
+                  setCheck(1);
+                pD=ProgressDialog.show(ThemeSwitcherActivity.this,"Theme Switcher", "Set  dronix 0.4 theme , now reboot framework",  true ,false);
 
-                    TaskApplyTheme tAt=new TaskApplyTheme();
+                    tAt=new TaskApplyTheme();
                     tAt.execute("1", "dronix04");
 
 
@@ -70,9 +75,10 @@ checkdf.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                  setCheck(2);
                 pD=ProgressDialog.show(ThemeSwitcherActivity.this,"Theme Switcher", "Set  ginger theme , now reboot framework",  true ,false);
 
-                                  TaskApplyTheme tAt=new TaskApplyTheme();
+                                  tAt=new TaskApplyTheme();
                                   tAt.execute("2", "ginger");
 
             }
@@ -83,9 +89,10 @@ checkdf.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                  setCheck(3);
                 pD=ProgressDialog.show(ThemeSwitcherActivity.this,"Theme Switcher", "Set  sense theme , now reboot framework",  true ,false);
 
-                                  TaskApplyTheme tAt=new TaskApplyTheme();
+                                  tAt=new TaskApplyTheme();
                                   tAt.execute("3", "sense");
 
             }
@@ -95,9 +102,10 @@ checkdf.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                  setCheck(4);
                 pD=ProgressDialog.show(ThemeSwitcherActivity.this,"Theme Switcher", "Set  custom theme , now reboot framework",  true ,false);
 
-                                  TaskApplyTheme tAt=new TaskApplyTheme();
+                                  tAt=new TaskApplyTheme();
                                   tAt.execute("4", "custom");
 
             }
@@ -179,13 +187,10 @@ checkdf.setOnClickListener(new OnClickListener() {
             }
 
     private class TaskApplyTheme extends AsyncTask<String, String, String> {
-
-
                    @Override
                    protected String doInBackground(String... params) {
                            try{
-                             int set=Integer.parseInt(params[0]);
-                             setCheck(set);
+
 
                                fsm.setTheme(params[1]);
 
@@ -205,7 +210,10 @@ checkdf.setOnClickListener(new OnClickListener() {
                            pD.setMessage(values[0] + "\n");
                    }
 
+
     }
+
+
 
     public void setCheck(int checkT){
 
@@ -231,7 +239,7 @@ checkdf.setOnClickListener(new OnClickListener() {
     private void setChecks(String theme) {
 
 
-        if (theme.contains("restore"))
+        if (theme.contains("default"))
 
             checkdf.setChecked(true);
 
@@ -275,4 +283,5 @@ private int checkT;
 private FSmanager fsm;
     private String theme;
         private ProgressDialog pD;
+    private TaskApplyTheme tAt;
 }
