@@ -1,5 +1,6 @@
 package org.dronix.android.dronixextendedmenu;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -29,7 +30,7 @@ public class Preferences extends PreferenceActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
-            dt = new DataIcon(this);
+            dt = new DataIcon();
 
             final CheckBoxPreference SSHcheckboxPref = (CheckBoxPreference) getPreferenceManager()
                 .findPreference("ssh_checkbox_preference");
@@ -154,11 +155,18 @@ public class Preferences extends PreferenceActivity {
     }
 
     private void checkRemoveDtIconStatus(Object newValue) throws IOException, RootToolsException, InterruptedException {
+        Intent intentC=new Intent(this, DataIcon.class);
         if(newValue.toString().equals("true") && !DataIcon.isRunning()){
-            dt.addIc();
+
+            intentC.putExtra("operation", "enable");   //Start new activity for enable icon
+            startActivity(intentC);
+
         }
         else{
-            dt.rmIc();
+            intentC.putExtra("operation", "disable");  //Start new activity for disable icon
+            startActivity(intentC);
+
+
         }
     }
 
