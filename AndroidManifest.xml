@@ -38,5 +38,10 @@
 
         <activity android:name=".IconSwitcherActivity"
                   android:label="@string/icon_switcher"/>
+
+        <activity android:name=".DataIcon"
+                  android:label="@string/data_ic">
+        </activity>
+
     </application>
 </manifest>
